@@ -26,6 +26,3 @@ class Person
       is_of_age? || @parent_permission
     end
 end
-
-person = Person.new(11, 'Daniel', true)
-p person.can_use_services?
