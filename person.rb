@@ -38,5 +38,14 @@ end
 person = Person.new(22, 'maximilianus')
 p person.correct_name
 
+#=> "maximilianus"
+
 capitalizedPerson = CapitalizeDecorator.new(person)
 p capitalizedPerson.correct_name
+
+# => "MAXIMILIANUS"
+
+capitalizedTrimmedPerson = TrimmerDecorator.new(capitalizedPerson)
+p capitalizedTrimmedPerson.correct_name
+
+# => "MAXIMILIAN"
