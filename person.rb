@@ -6,13 +6,12 @@ class Person < Nameable
 
   @counter = 0
 
-  def initialize(age, name = 'unknown', parent_permission: true, nameable: nil)
+  def initialize(age, name = 'unknown', parent_permission: true)
     @counter += 1
     @id = @@counter
     @name = name
     @age = age
     @parent_permission = parent_permission
-    @nameable = nameable
     super()
   end
 
@@ -29,6 +28,6 @@ class Person < Nameable
   end
 
   def correct_name
-    @nameable.correct_name
+    @name
   end
 end
