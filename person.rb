@@ -1,19 +1,19 @@
 require './nameable'
 
 class Person < Nameable
-
   attr_reader :id
-  attr_accessor :name, :age, :nameable_object
+  attr_accessor :name, :age, :nameable
 
   @counter = 0
 
-  def initialize(age, name = 'unknown', parent_permission: true, nameable_object: nil)
+  def initialize(age, name = 'unknown', parent_permission: true, nameable: nil)
     @counter += 1
     @id = @@counter
     @name = name
     @age = age
     @parent_permission = parent_permission
-    @nameable_object = nameable_object
+    @nameable = nameable
+    super()
   end
 
   private
@@ -26,5 +26,9 @@ class Person < Nameable
 
   def can_use_services?
     is_of_age? || @parent_permission
+  end
+
+  def correct_name
+    @nameable.correct_name
   end
 end
