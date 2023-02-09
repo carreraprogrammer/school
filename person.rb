@@ -1,6 +1,6 @@
 require './nameable'
-require './CapitalizeDecorator'
-require './TrimmerDecorator'
+require './capitalize_decorator'
+require './trimmer_decorator'
 
 class Person < Nameable
   attr_reader :id
@@ -15,6 +15,7 @@ class Person < Nameable
     @name = name
     @age = age
     @parent_permission = parent_permission
+    super()
   end
 
   private
@@ -34,18 +35,15 @@ class Person < Nameable
   end
 end
 
-
 person = Person.new(22, 'maximilianus')
 p person.correct_name
 
 #=> "maximilianus"
 
-capitalizedPerson = CapitalizeDecorator.new(person)
-p capitalizedPerson.correct_name
+capitalized_person = CapitalizeDecorator.new(person)
+p capitalized_person.correct_name
 
-# => "MAXIMILIANUS"
+#=> "MAXIMILIANUS"
 
-capitalizedTrimmedPerson = TrimmerDecorator.new(capitalizedPerson)
-p capitalizedTrimmedPerson.correct_name
-
-# => "MAXIMILIAN"
+capitalized_trimmed_person = TrimmerDecorator.new(capitalized_person)
+p capitalized_trimmed_person.correct_name
