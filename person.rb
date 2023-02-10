@@ -4,7 +4,7 @@ require './trimmer_decorator'
 
 class Person < Nameable
   attr_reader :id
-  attr_accessor :name, :age, :nameable
+  attr_accessor :name, :age, :nameable, :rents
 
   @@counter = 0
 
@@ -14,6 +14,7 @@ class Person < Nameable
     @name = name
     @age = age
     @parent_permission = parent_permission
+    @rents = []
     super()
   end
 
@@ -31,6 +32,10 @@ class Person < Nameable
 
   def correct_name
     @name
+  end
+
+  def rents?
+    @rents
   end
 
 end
