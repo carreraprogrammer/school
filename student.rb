@@ -14,6 +14,10 @@ class Student < Person
   def play_hooky
     '¯(ツ)/¯'
   end
+
+  def class?
+    @classroom.label
+  end
 end
 
 
@@ -23,4 +27,4 @@ p "This is the class"
 p math_class
 
 student1 = Student.new(math_class, 16)
-p student1
+p student1.class?

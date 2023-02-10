@@ -32,4 +32,8 @@ class Person < Nameable
   def correct_name
     @name
   end
+
+  def classroom
+    @classroom.label
+    end
 end
