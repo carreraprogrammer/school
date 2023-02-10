@@ -33,7 +33,4 @@ class Person < Nameable
     @name
   end
 
-  def classroom
-    @classroom.label
-    end
 end
