@@ -6,11 +6,11 @@ class Person < Nameable
   attr_reader :id
   attr_accessor :name, :age, :nameable, :rents
 
-  @@counter = 0
+  @counter = 0
 
   def initialize(age, name = 'unknown', parent_permission: true)
-    @@counter += 1
-    @id = @@counter
+    @counter += 1
+    @id = @counter
     @name = name
     @age = age
     @parent_permission = parent_permission
@@ -37,5 +37,4 @@ class Person < Nameable
   def rents?
     @rents
   end
-
 end

@@ -6,6 +6,7 @@ class Student < Person
 
   def initialize(classroom, age, name = 'Unknown', parent_permission: 'Unknown')
     raise "The class doesn't exist, please create an object classroom first" unless classroom.is_a?(Classroom)
+
     super(age, name, parent_permission: parent_permission)
     @classroom = classroom
     @classroom.students << self
@@ -21,9 +22,9 @@ class Student < Person
 end
 
 
-math_class = Classroom.new("Math")
+math_class = Classroom.new('Math')
 
-p "This is the class"
+p 'This is the class'
 p math_class
 
 student1 = Student.new(math_class, 16)
