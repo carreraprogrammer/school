@@ -19,4 +19,13 @@ class Student < Person
   def class?
     @classroom.label
   end
+
+  def classroom=(classroom)
+    if !classroom.students.include?(self)
+      @classroom = classroom
+      classroom.students.push(self) unless classroom.students.include?(self)
+    else
+      raise "The student is already registered in the classroom"
+    end
+  end
 end
