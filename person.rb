@@ -4,17 +4,17 @@ require './trimmer_decorator'
 
 class Person < Nameable
   attr_reader :id
-  attr_accessor :name, :age, :nameable
+  attr_accessor :name, :age, :nameable, :rents
 
   @counter = 0
 
   def initialize(age, name = 'unknown', parent_permission: true)
-    @counter = 0
     @counter += 1
     @id = @counter
     @name = name
     @age = age
     @parent_permission = parent_permission
+    @rents = []
     super()
   end
 
@@ -32,5 +32,13 @@ class Person < Nameable
 
   def correct_name
     @name
+  end
+
+  def rents?
+    @rents
+  end
+
+  def add_rental(_person, date)
+    Rental.new(date, book, self)
   end
 end
